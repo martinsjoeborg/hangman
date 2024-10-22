@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "B:\\Private_projects\\C#\\GH-hangman\\hangman\\hangman.csproj": {}
+    "C:\\coding_stuff\\C#\\hangman\\hangman.csproj": {}
   },
   "projects": {
-    "B:\\Private_projects\\C#\\GH-hangman\\hangman\\hangman.csproj": {
+    "C:\\coding_stuff\\C#\\hangman\\hangman.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\Private_projects\\C#\\GH-hangman\\hangman\\hangman.csproj",
+        "projectUniqueName": "C:\\coding_stuff\\C#\\hangman\\hangman.csproj",
         "projectName": "hangman",
-        "projectPath": "B:\\Private_projects\\C#\\GH-hangman\\hangman\\hangman.csproj",
+        "projectPath": "C:\\coding_stuff\\C#\\hangman\\hangman.csproj",
         "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-        "outputPath": "B:\\Private_projects\\C#\\GH-hangman\\hangman\\obj\\",
+        "outputPath": "C:\\coding_stuff\\C#\\hangman\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -60,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
