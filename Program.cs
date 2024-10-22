@@ -1,6 +1,5 @@
 ﻿//setup
-
-string secretWord = "mumin";
+string secretWord = File.ReadAllText("./secretWord.txt");
 List<char> guessedLetters = [];
 int lives = 6;
 
