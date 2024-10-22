@@ -2,10 +2,11 @@
 string secretWord = File.ReadAllText("./secretWord.txt");
 List<char> guessedLetters = [];
 int lives = 6;
+bool showHint = true;
 
 Console.Clear();
 
-Console.ForegroundColor = ConsoleColor.White;
+Console.ForegroundColor = ConsoleColor.Black;
 Console.WriteLine();
 Console.Write("\nWelcome to Hangman!");
 Console.WriteLine();
@@ -18,15 +19,32 @@ while(lives > 0)
     Info("\nGuess a letter or a word: ");
 
     string stringInput = Console.ReadLine()!;
-    char guess = stringInput[0];
-    Console.WriteLine();
+
+    if(stringInput.Length == 0)
+    {
+        WarningLine("Please enter a letter or a word.\n");
+        continue;
+    }
 
     if(stringInput.Length > 1)
     {
         if(secretWord == stringInput)
         {
-            SuccessLine("Correct!");
-            return;
+            SuccessLine("Congrats! You won!\n");
+            InfoLine("Do you want to play again? Click 'y' if not click 'n': ");
+            string yesOrNo = Console.ReadLine()!;
+            if(yesOrNo == "y")
+            {
+                lives = 6;
+                showHint = true;
+                var emptedList = new List<char>();
+                guessedLetters = emptedList;
+                continue;
+            }
+            else if(yesOrNo == "n")
+            {
+                break;
+            }
         }
         else
         {
@@ -35,6 +53,9 @@ while(lives > 0)
             continue;
         }
     }
+
+    char guess = stringInput[0];
+    Console.WriteLine();
 
     if(!IsAllowedGuess(guess))
     {
@@ -57,18 +78,24 @@ while(lives > 0)
     else
     {
         lives--;
-        ErrorLine("Wrong!\n");
+        ErrorLine("Wrong!\n");  
+    }
+
+    if (lives <= 2 && showHint)
+    {
+        Info("HINT: Famous finnish children show.\n");
+        showHint = false;
+        continue;
     }
 
     if(IsWordGuessed(secretWord, guessedLetters))
-    {
-        SuccessLine("Congrats! You won!");
-        InfoLine();
-        return;
+    {   
+        SuccessLine("Congrats! You won!\n");
+        break;
     }
 }
 
-ErrorLine($"Game over! The word was {secretWord}");
+ErrorLine("Game over!");
 
 static bool IsWordGuessed(string word, List<char> guessedLetters)
 {
@@ -97,13 +124,13 @@ static void DisplayMaskedWord(string word, List<char> guessedLetters)
 
 static void Info(string message)
 {
-    Console.ForegroundColor = ConsoleColor.White;
+    Console.ForegroundColor = ConsoleColor.Black;
     Console.Write(message);
 }
 
 static void InfoLine(string message="")
 {
-    Console.ForegroundColor = ConsoleColor.White;
+    Console.ForegroundColor = ConsoleColor.Black;
     Console.Write(message);
 }
 
