@@ -37,8 +37,9 @@ while(lives > 0)
             {
                 lives = 6;
                 showHint = true;
-                var emptedList = new List<char>();
-                guessedLetters = emptedList;
+                var emptyList = new List<char>();
+                guessedLetters = emptyList;
+                Console.Clear();
                 continue;
             }
             else if(yesOrNo == "n")
@@ -48,7 +49,7 @@ while(lives > 0)
         }
         else
         {
-            ErrorLine("Wrong. -2 lives gone\n");
+            ErrorLine("Wrong. -2 lives \n");
             lives -= 2;
             continue;
         }
@@ -83,7 +84,7 @@ while(lives > 0)
 
     if (lives <= 2 && showHint)
     {
-        Info("HINT: Famous finnish children show.\n");
+        Info("HINT: Hello in swedish.\n");
         showHint = false;
         continue;
     }
@@ -91,11 +92,68 @@ while(lives > 0)
     if(IsWordGuessed(secretWord, guessedLetters))
     {   
         SuccessLine("Congrats! You won!\n");
-        break;
+        InfoLine();
+        InfoLine("Do you want to play again? Click 'y' if not click 'n': ");
+            string yesOrNo = Console.ReadLine()!;
+            if(yesOrNo == "y")
+            {
+                lives = 6;
+                showHint = true;
+                var emptedList = new List<char>();
+                guessedLetters = emptedList;
+                Console.Clear();
+                continue;
+            }
+            else if(yesOrNo == "n")
+            {
+            return;
+            }
+    }
+
+    if (lives == 0)
+    {   
+        ErrorLine("Game over!\n");
+        InfoLine($"The word was: {secretWord}.\n");
+        InfoLine();
+        InfoLine("Do you want to play again? Click 'y' if not click 'n': ");
+            string yesOrNo = Console.ReadLine()!;
+            if(yesOrNo == "y")
+            {
+                lives = 6;
+                showHint = true;
+                var emptedList = new List<char>();
+                guessedLetters = emptedList;
+                Console.Clear();
+                continue;
+            }
+            else if(yesOrNo == "n")
+            {
+            return;
+            }
     }
 }
 
-ErrorLine("Game over!");
+// ErrorLine("Game over!");
+
+
+// static void startOver(int lives, bool showHint,List<char> guessedLetters)
+// {
+//     InfoLine("Do you want to play again? Click 'y' if not click 'n': ");
+//             string yesOrNo = Console.ReadLine()!;
+//             if(yesOrNo == "y")
+//             {
+//                 lives = 6;
+//                 showHint = true;
+//                 var emptedList = new List<char>();
+//                 guessedLetters = emptedList;
+//                 Console.Clear();
+//                 continue;
+//             }
+//             else if(yesOrNo == "n")
+//             {
+//             return;
+//             }
+// }
 
 static bool IsWordGuessed(string word, List<char> guessedLetters)
 {
