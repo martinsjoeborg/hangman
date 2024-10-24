@@ -105,10 +105,12 @@ while(lives > 0)
                 continue;
             }
             else if(yesOrNo == "n")
-            {
+            { 
             return;
             }
     }
+
+    System.Console.WriteLine("Hej");
 
     if (lives == 0)
     {   
